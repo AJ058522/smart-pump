@@ -15,7 +15,11 @@ const loginUser = async (req, res) => {
     const jwtToken = jwtTokenGenerator(data);
     return await res
       .status(200)
-      .json({ msg: "logged in successfully.", token: jwtToken });
+      .json({
+        msg: "logged in successfully.",
+        token: jwtToken,
+        userdata: data,
+      });
   } catch (error) {
     return res.status(400).json(error);
   }
