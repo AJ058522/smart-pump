@@ -18,8 +18,6 @@ async function onSubmit() {
     form.error = "";
     form.pending = true;
     const loggedUser = await login(form.data.email, form.data.password);
-    console.log(loggedUser);
-
     saveSession(loggedUser);
     authenticated.value = !authenticated.value;
     router.push({ path: "/dashboard" });

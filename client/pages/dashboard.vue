@@ -20,6 +20,7 @@ async function onSubmit() {}
 
 <template>
   <Navbar />
+  <UserData />
   <div class="text-center">
     <main class="form-signin w-50 m-auto my-4 mw-50">
       <div v-if="data.loading" class="mt-4">
