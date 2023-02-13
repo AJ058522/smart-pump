@@ -6,8 +6,8 @@ const cors = require("cors");
 
 const authRouter = require("./src/auth/routes/auth.routes");
 const authMiddleware = require("./src/auth/middlewares/auth.middleware");
+const usersRouter = require("./src/users/routes/users.routes");
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
 
 var app = express();
 
@@ -20,5 +20,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
+app.use("/users", authMiddleware.isAuthorized, usersRouter);
 
 module.exports = app;
