@@ -1,5 +1,8 @@
 const fs = require("fs");
-const filePath = "C:/Users/AJBUC/Desktop/dev-test/data/users.json";
+const { dirname } = require("path");
+let appDir = dirname(require.main.path);
+appDir = appDir.split("api");
+const filePath = appDir[0] + "data/users.json";
 
 const loadData = () => {
   const data = fs.readFileSync(filePath, "utf8", (error, jsonString) => {
